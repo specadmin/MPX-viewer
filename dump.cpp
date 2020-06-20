@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------------
 #define HIGHLIGHT_TIME          25
 //-----------------------------------------------------------------------------
-struct
+struct sKnown
 {
     BYTE id;
     char name[8];
@@ -68,7 +68,7 @@ CDumpEntry::CDumpEntry(BYTE* data)
     update(data);
     m_updated = true;
     m_name = NULL;
-    for(BYTE i = 0; i < sizeof(known); i++)
+    for(BYTE i = 0; i < sizeof(known) / sizeof(sKnown); i++)
     {
         if(known[i].id == m_id)
         {
